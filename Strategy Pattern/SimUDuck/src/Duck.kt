@@ -1,5 +1,5 @@
 abstract class Duck {
-    fun quack() {
+    open fun quack() {
         println("Duck is quacking")
     }
 
@@ -8,4 +8,8 @@ abstract class Duck {
     }
 
     abstract fun display()
+
+    open fun fly() {
+        println("Duck is flying")
+    }
 }
