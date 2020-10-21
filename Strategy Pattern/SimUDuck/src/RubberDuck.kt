@@ -1,9 +1,10 @@
-class RubberDuck : Duck(), Quackable {
-    override fun display() {
-        println("displaying RubberDuck")
+class RubberDuck : Duck() {
+    init {
+        flyBehavior = FlyNoWay()
+        quackBehavior = Squeak()
     }
 
-    override fun quack() {
-        println("Duck is squeaking")
+    override fun display() {
+        println("displaying RubberDuck")
     }
 }
