@@ -1,6 +1,6 @@
 abstract class Duck {
-    protected lateinit var flyBehavior: FlyBehavior
-    protected lateinit var quackBehavior: QuackBehavior
+    lateinit var flyBehavior: FlyBehavior
+    lateinit var quackBehavior: QuackBehavior
 
     fun swim() {
         println("Duck is swimming")
