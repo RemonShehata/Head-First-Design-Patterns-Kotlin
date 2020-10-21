@@ -1,4 +1,4 @@
-class RubberDuck : Duck() {
+class RubberDuck : Duck(), Quackable {
     override fun display() {
         println("displaying RubberDuck")
     }
