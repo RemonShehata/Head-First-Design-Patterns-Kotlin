@@ -1,13 +1,31 @@
-class WeatherData {
+class WeatherData : Subject {
+
+    private val observers = mutableListOf<Observer>()
+    private var temperature = 0F
+    private var humidity = 0F
+    private var pressure = 0F
 
     //This method gets called whenever the weather measurements have been updated
-    fun measurementsChanged() {
-        val temp = getTemperature();
-        val humidity = getHumidity();
-        val pressure = getPressure();
+    private fun measurementsChanged() {
+        notifyObservers()
+    }
 
-        currentConditionsDisplay.update(temp, humidity, pressure);
-        statisticsDisplay.update(temp, humidity, pressure);
-        forecastDisplay.update(temp, humidity, pressure);
+    override fun registerObserver(o: Observer) {
+        observers.add(o)
+    }
+
+    override fun removeObserver(o: Observer) {
+        observers.remove(o)
+    }
+
+    override fun notifyObservers() {
+        observers.forEach { it.update(temperature, humidity, pressure) }
+    }
+
+    fun setMeasurements(temp: Float, humidity: Float, pressure: Float) {
+        this.temperature = temp
+        this.humidity = humidity
+        this.pressure = pressure
+        measurementsChanged()
     }
 }

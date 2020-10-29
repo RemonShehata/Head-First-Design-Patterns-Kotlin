@@ -1,0 +1,2 @@
+class StatisticsDisplay : Observer, DisplayElement {
+}

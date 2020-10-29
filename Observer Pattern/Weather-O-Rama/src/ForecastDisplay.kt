@@ -1,0 +1,2 @@
+class ForecastDisplay : Observer, DisplayElement {
+}
