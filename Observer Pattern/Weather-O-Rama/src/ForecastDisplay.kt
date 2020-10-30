@@ -1,15 +1,22 @@
-class ForecastDisplay(weatherData: Subject) : Observer, DisplayElement {
+import java.util.*
+import java.util.Observer
+
+class ForecastDisplay(observable: Observable) : Observer, DisplayElement {
     private var currentPressure = 0f
     private var lastPressure = 0f
 
     init {
-        weatherData.registerObserver(this)
+        observable.addObserver(this)
     }
 
-    override fun update(temp: Float, humidity: Float, pressure: Float) {
-        lastPressure = currentPressure
-        currentPressure = pressure
-        display()
+    override fun update(o: Observable?, arg: Any?) {
+        if (o is WeatherData){
+            val weatherData = o as WeatherData
+            lastPressure = currentPressure
+            currentPressure = weatherData.pressure
+
+            display()
+        }
     }
 
     override fun display() {

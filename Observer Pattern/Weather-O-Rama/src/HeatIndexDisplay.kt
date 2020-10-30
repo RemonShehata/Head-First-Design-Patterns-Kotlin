@@ -1,18 +1,25 @@
-class HeatIndexDisplay(weatherData: Subject) : Observer, DisplayElement {
+import java.util.*
+import java.util.Observer
+
+class HeatIndexDisplay(observable: Observable) : Observer, DisplayElement {
 
     private var heatIndex = 0f
 
     init {
-        weatherData.registerObserver(this)
+        observable.addObserver(this)
     }
 
-    override fun update(temp: Float, humidity: Float, pressure: Float) {
-        heatIndex = computeHeatIndex(temp, humidity)
-        display()
+    override fun update(o: Observable?, arg: Any?) {
+        if (o is WeatherData) {
+            val weatherData = o as WeatherData
+            heatIndex = computeHeatIndex(weatherData.temperature, weatherData.humidity)
+
+            display()
+        }
     }
 
     override fun display() {
-        println("Heat index is " + heatIndex)
+        println("Heat index is $heatIndex")
     }
 
     private fun computeHeatIndex(t: Float, rh: Float): Float {
