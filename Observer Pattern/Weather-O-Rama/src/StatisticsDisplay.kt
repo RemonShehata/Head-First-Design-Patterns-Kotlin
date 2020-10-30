@@ -24,7 +24,9 @@ class StatisticsDisplay(weatherData: Subject) : Observer, DisplayElement {
     }
 
     override fun display() {
-        println("Avg/Max/Min temperature = " + (tempSum / numReadings)
-                + "/" + maxTemp + "/" + minTemp)
+        println(
+            "Avg/Max/Min temperature = " + (tempSum / numReadings)
+                    + "/" + maxTemp + "/" + minTemp
+        )
     }
 }
