@@ -1,4 +1,4 @@
-class CurrentConditionsDisplay(weatherData: WeatherData) : Observer, DisplayElement {
+class CurrentConditionsDisplay(weatherData: Subject) : Observer, DisplayElement {
 
     init {
         weatherData.registerObserver(this)
