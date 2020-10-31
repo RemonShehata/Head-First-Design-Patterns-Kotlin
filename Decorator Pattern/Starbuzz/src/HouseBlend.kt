@@ -2,6 +2,6 @@ class HouseBlend : Beverage() {
     override var description = "HouseBlend"
 
     override fun getCost(): Float {
-        return super.getCost() + 10f
+        return 0.89f
     }
 }
