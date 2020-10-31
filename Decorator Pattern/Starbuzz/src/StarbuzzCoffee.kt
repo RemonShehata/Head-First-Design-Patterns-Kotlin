@@ -14,4 +14,10 @@ fun main() {
     beverage2 = Whip(beverage2)
     println("${beverage2.description}  $${beverage2.getCost()}")
 
+    var beverage3: Beverage = Decaf()
+    beverage3.size = Beverage.Size.grande
+    beverage3 = Soy(beverage3)
+    println("${beverage3.description}  $${beverage3.getCost()}")
+
+
 }
