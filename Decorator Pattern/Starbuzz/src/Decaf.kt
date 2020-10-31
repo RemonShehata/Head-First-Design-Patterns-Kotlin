@@ -1,6 +1,7 @@
 class Decaf : Beverage() {
+    override var description = "Decaf"
 
     override fun getCost(): Float {
-        return 0f
+        return super.getCost() + 20f
     }
 }
