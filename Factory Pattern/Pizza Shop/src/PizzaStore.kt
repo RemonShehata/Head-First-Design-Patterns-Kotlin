@@ -1,11 +1,6 @@
-class PizzaStore {
+class PizzaStore(private val simplePizzaFactory: SimplePizzaFactory) {
     fun orderPizza(type: String): Pizza? {
-        val pizza = when (type) {
-            "cheese" -> CheesePizza()
-            "greek" -> GreekPizza()
-            "pepperoni" -> PepperoniPizza()
-            else -> null
-        }
+        val pizza = simplePizzaFactory.createPizza(type)
         pizza?.prepare()
         pizza?.bake()
         pizza?.cut()
