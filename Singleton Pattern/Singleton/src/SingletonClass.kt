@@ -1,5 +1,5 @@
 class SingletonClass {
-    object Instance {
+    companion object Instance {
         val singletonClass = SingletonClass()
     }
 }
